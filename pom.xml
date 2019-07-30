@@ -15,6 +15,30 @@
 	<packaging>pom</packaging>
 
 	<name>pdf filter</name>
+	<description>XHTML To PDF Filter</description>
+	<url>https://github.com/AntonYudin/pdffilter</url>
+
+	<licenses>
+		<license>
+			<name>Apache License, Version 2.0</name>
+			<url>http://www.apache.org/licenses/LICENSE-2.0.txt</url>
+			<distribution>repo</distribution>
+		</license>
+	</licenses>
+
+	<developers>
+		<developer>
+			<name>Anton Yudin</name>
+			<email>dev@antonyudin.com</email>
+		</developer>
+	</developers>
+
+	<scm>
+		<connection>scm:git:git://github.com/AntonYudin/pdffilter.git</connection>
+		<developerConnection>scm:git:git://github.com/AntonYudin/pdffilter.git</developerConnection>
+		<url>https://github.com/AntonYudin/pdffilter</url>
+	</scm>
+
 
 	<modules>
 		<module>filter</module>
@@ -50,8 +74,18 @@
 
 
 	<build>
+
+		<plugins>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-gpg-plugin</artifactId>
+			</plugin>
+		</plugins>
+
 		<pluginManagement>
+
 			<plugins>
+
 				<plugin>
 					<groupId>org.apache.maven.plugins</groupId>
 					<artifactId>maven-site-plugin</artifactId>
@@ -59,7 +93,68 @@
 						<unzipCommand>/usr/bin/unzip -o > err.txt</unzipCommand>
 					</configuration>
 				</plugin>
+
+				<plugin>
+					<groupId>org.apache.maven.plugins</groupId>
+					<artifactId>maven-compiler-plugin</artifactId>
+					<version>3.8.0</version>
+					<configuration>
+						<compilerArgument>-Xlint:all</compilerArgument>
+					</configuration>
+				</plugin>
+
+				<plugin>
+					<groupId>org.apache.maven.plugins</groupId>
+					<artifactId>maven-source-plugin</artifactId>
+					<executions>
+						<execution>
+							<id>attach-sources</id>
+							<goals>
+								<goal>jar</goal>
+							</goals>
+						</execution>
+					</executions>
+				</plugin>
+
+				<plugin>
+					<groupId>org.apache.maven.plugins</groupId>
+					<artifactId>maven-javadoc-plugin</artifactId>
+					<executions>
+						<execution>
+							<id>attach-javadocs</id>
+							<goals>
+								<goal>jar</goal>
+							</goals>
+						</execution>
+					</executions>
+				</plugin>
+
+				<plugin>
+					<groupId>org.apache.maven.plugins</groupId>
+					<artifactId>maven-gpg-plugin</artifactId>
+					<version>1.5</version>
+					<executions>
+						<execution>
+							<id>sign-artifacts</id>
+							<phase>verify</phase>
+							<goals>
+								<goal>sign</goal>
+							</goals>
+							<configuration>
+								<gpgArguments>
+									<arg>--pinentry-mode</arg>
+									<arg>loopback</arg>
+								</gpgArguments> 
+								<!--
+								<passphraseServerId>${gpg.keyname}</passphraseServerId>
+								-->
+							</configuration>
+						</execution>
+					</executions>
+				</plugin>
+
 			</plugins>
+
 		</pluginManagement>
 	</build>
 
@@ -96,4 +191,16 @@
 
 	</dependencyManagement>
 
+	<distributionManagement>
+		<snapshotRepository>
+			<id>ossrh</id>
+			<url>https://oss.sonatype.org/content/repositories/snapshots</url>
+		</snapshotRepository>
+		<repository>
+			<id>ossrh</id>
+			<url>https://oss.sonatype.org/service/local/staging/deploy/maven2/</url>
+		</repository>
+	</distributionManagement>
+
 </project>
+

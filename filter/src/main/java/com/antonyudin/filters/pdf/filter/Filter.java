@@ -134,9 +134,9 @@ public class Filter extends javax.servlet.http.HttpFilter {
 				final String value = filterConfig.getServletContext().getInitParameter(name);
 
 				if ((value != null) && value.equalsIgnoreCase("true"))
-					defaultProcessor = (Processor) Class.forName(value).newInstance();
+					defaultProcessor = (Processor) Class.forName(value).getDeclaredConstructor().newInstance();
 				else
-					defaultProcessor = (Processor) Class.forName("com.antonyudin.filters.pdf.openhtmltopdf.Processor").newInstance();
+					defaultProcessor = (Processor) Class.forName("com.antonyudin.filters.pdf.openhtmltopdf.Processor").getDeclaredConstructor().newInstance();
 
 				logger.info("selected processor: [" + defaultProcessor + "]");
 			}
