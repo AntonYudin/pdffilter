@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<project
+	xmlns="http://maven.apache.org/POM/4.0.0"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd"
+>
+
+	<!-- copyright (c) 2019 Anton Yudin -->
+
+	<modelVersion>4.0.0</modelVersion>
+	<groupId>com.antonyudin.filters.pdf</groupId>
+	<version>1.0</version>
+	<artifactId>project</artifactId>
+	<packaging>pom</packaging>
+
+	<name>pdf filter</name>
+
+	<modules>
+		<module>filter</module>
+		<module>filter-itextpdf</module>
+		<module>filter-openhtmltopdf</module>
+		<module>webapp</module>
+	</modules>
+
+	<properties>
+		<maven.compiler.source>11</maven.compiler.source>
+		<maven.compiler.target>11</maven.compiler.target>
+
+		<maven.jar.plugin.version>3.1.1</maven.jar.plugin.version>
+		<maven.ear.plugin.version>3.0.1</maven.ear.plugin.version>
+		<maven.ejb.plugin.version>3.0.1</maven.ejb.plugin.version>
+		<maven.war.plugin.version>3.2.2</maven.war.plugin.version>
+		<maven.source.plugin.version>3.0.1</maven.source.plugin.version>
+		<maven.javadoc.plugin.version>3.0.1</maven.javadoc.plugin.version>
+		<maven.javadoc.plugin.html.version>-html5</maven.javadoc.plugin.html.version>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+	</properties>
+
+	<repositories>
+		<repository>
+			<id>in-project</id>
+			<name>project repository</name>
+			<!--
+			<url>file://${project.parent.basedir}/project-repository</url>
+			-->
+			<url>file://F:/projects/antonyudin/commons/project-repository</url>
+		</repository>
+	</repositories>
+
+
+	<build>
+		<pluginManagement>
+			<plugins>
+				<plugin>
+					<groupId>org.apache.maven.plugins</groupId>
+					<artifactId>maven-site-plugin</artifactId>
+					<configuration>
+						<unzipCommand>/usr/bin/unzip -o > err.txt</unzipCommand>
+					</configuration>
+				</plugin>
+			</plugins>
+		</pluginManagement>
+	</build>
+
+	<dependencyManagement>
+
+		<dependencies>
+
+			<dependency>
+				<groupId>javax</groupId>
+				<artifactId>javaee-api</artifactId>
+				<version>8.0</version>
+				<scope>provided</scope>
+			</dependency>
+
+			<dependency>
+				<groupId>com.itextpdf</groupId>
+				<artifactId>html2pdf</artifactId>
+				<version>2.1.4</version>
+			</dependency>
+
+			<dependency>
+				<groupId>com.openhtmltopdf</groupId>
+				<artifactId>openhtmltopdf-core</artifactId>
+				<version>1.0.0</version>
+			</dependency>
+
+			<dependency>
+				<groupId>com.openhtmltopdf</groupId>
+				<artifactId>openhtmltopdf-pdfbox</artifactId>
+				<version>1.0.0</version>
+			</dependency>
+
+		</dependencies>
+
+	</dependencyManagement>
+
+</project>

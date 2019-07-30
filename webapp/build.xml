@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+
+<project name="application-pdf-filter-wwwapp">
+
+
+	<property name="applicationName" value="pdffilter"/>
+	<property name="warDir" value="target/webapp-1.0"/>
+	<property name="warFile" value="target/${applicationName}.war"/>
+
+	<hostinfo prefix="host"/>
+
+	<property file="build.${host.NAME}.properties"/>
+	<property file="build.${os.name}.properties"/>
+
+	<property name="deploy.directory" value="${serverRoot}/standalone/deployments"/>
+
+
+	<target name="undeploy">
+
+		<echo message="host: ${host.NAME}"/>
+		<echo message="os.name: ${os.name}"/>
+		<echo message="os.arch: ${os.arch}"/>
+		<echo message="serverRoot: ${serverRoot}"/>
+
+		<delete dir="${deploy.directory}/${applicationName}.war"/>
+		<delete file="${deploy.directory}/${applicationName}.war.dodeploy"/>
+		<delete file="${deploy.directory}/${applicationName}.war.deployed"/>
+
+	</target>
+
+	<target name="deploy" depends="undeploy">
+
+		<copy todir="${deploy.directory}/${applicationName}.war">
+			<fileset dir="${warDir}"/>
+		</copy>
+
+		<touch file="${deploy.directory}/${applicationName}.war.dodeploy"/>
+
+	</target>
+
+</project>
+
