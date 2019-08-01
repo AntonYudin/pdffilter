@@ -8,3 +8,25 @@ The actual transformation of the XHTML into PDF is done using one of the followi
 * [ITextPDF/pdfHTML](https://itextpdf.com)
 * [openhtmltopdf](https://github.com/danfickle/openhtmltopdf)
 
+## Maven
+
+```xml
+                <dependency>
+                        <groupId>com.antonyudin.filters.pdf</groupId>
+                        <artifactId>ay-filters-pdf-filter</artifactId>
+                        <version>1.0</version>
+                </dependency>
+
+                <dependency>
+                        <groupId>com.antonyudin.filters.pdf</groupId>
+                        <artifactId>ay-filters-pdf-openhtmltopdf</artifactId>
+                        <version>1.0</version>
+                </dependency>
+
+                <dependency>
+                        <groupId>com.antonyudin.filters.pdf</groupId>
+                        <artifactId>ay-filters-pdf-itextpdf</artifactId>
+                        <version>1.0</version>
+                </dependency>
+```
+
