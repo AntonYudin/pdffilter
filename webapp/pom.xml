@@ -22,19 +22,19 @@
 
 		<dependency>
 			<groupId>com.antonyudin.filters.pdf</groupId>
-			<artifactId>filter</artifactId>
+			<artifactId>ay-filters-pdf-filter</artifactId>
 			<version>1.0</version>
 		</dependency>
 
 		<dependency>
 			<groupId>com.antonyudin.filters.pdf</groupId>
-			<artifactId>filter-itextpdf</artifactId>
+			<artifactId>ay-filters-pdf-itextpdf</artifactId>
 			<version>1.0</version>
 		</dependency>
 
 		<dependency>
 			<groupId>com.antonyudin.filters.pdf</groupId>
-			<artifactId>filter-openhtmltopdf</artifactId>
+			<artifactId>ay-filters-pdf-openhtmltopdf</artifactId>
 			<version>1.0</version>
 		</dependency>
 
@@ -44,6 +44,44 @@
 		</dependency>
 
 	</dependencies>
+
+	<build>
+		<plugins>
+
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-deploy-plugin</artifactId>
+				<version>${maven.deploy.plugin.version}</version>
+				<configuration>
+					<skip>false</skip>
+				</configuration>
+			</plugin>
+
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-source-plugin</artifactId>
+				<version>${maven.source.plugin.version}</version>
+			</plugin>
+
+			<plugin>
+				<artifactId>maven-jar-plugin</artifactId>
+				<version>${maven.jar.plugin.version}</version>
+			</plugin>
+
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-gpg-plugin</artifactId>
+			</plugin>
+
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-javadoc-plugin</artifactId>
+				<version>${maven.javadoc.plugin.version}</version>
+			</plugin>
+
+		</plugins>
+	</build>
+
 
 </project>
 

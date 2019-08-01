@@ -39,14 +39,6 @@
 		<url>https://github.com/AntonYudin/pdffilter</url>
 	</scm>
 
-
-	<modules>
-		<module>filter</module>
-		<module>filter-itextpdf</module>
-		<module>filter-openhtmltopdf</module>
-		<module>webapp</module>
-	</modules>
-
 	<properties>
 		<maven.compiler.source>11</maven.compiler.source>
 		<maven.compiler.target>11</maven.compiler.target>
@@ -58,8 +50,18 @@
 		<maven.source.plugin.version>3.0.1</maven.source.plugin.version>
 		<maven.javadoc.plugin.version>3.0.1</maven.javadoc.plugin.version>
 		<maven.javadoc.plugin.html.version>-html5</maven.javadoc.plugin.html.version>
+
+		<maven.deploy.plugin.version>3.0.0-M1</maven.deploy.plugin.version>
+
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 	</properties>
+
+	<modules>
+		<module>filter</module>
+		<module>filter-itextpdf</module>
+		<module>filter-openhtmltopdf</module>
+		<module>webapp</module>
+	</modules>
 
 	<repositories>
 		<repository>
